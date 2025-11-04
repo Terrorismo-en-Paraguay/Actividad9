@@ -12,12 +12,13 @@ import java.nio.file.Path;
 public class Main {
     public static void main(String[] args) {
         var xmlMapper = XmlMapper.builder().enable(SerializationFeature.INDENT_OUTPUT).build();
-        Path base = Path.of("src","main","java","es","cifpcarlos3","Actividad9");
+        //Path base = Path.of("src","main","java","es","cifpcarlos3","Actividad9");
+        //No funciona el base en general
         Path json = Path.of("clientes.xml");
         ListaClientes lista = null;
         try(FileInputStream fis = new FileInputStream(json.toFile())) {
             lista = xmlMapper.readValue(fis, ListaClientes.class);
-        }catch (Exception ex){
+        }catch (Exception ex){//Sale que no tiene constructor
             System.out.println("Error");
         }
 
