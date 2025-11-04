@@ -1,11 +1,21 @@
 package es.cifpcarlos3.vo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonRootName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import tools.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 import java.util.List;
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
+@JsonRootName("clientes")
 public class ListaClientes {
+    @JacksonXmlProperty(localName="cliente")
+    @JacksonXmlElementWrapper(useWrapping = false)
     List<Cliente> clientes;
 }
